@@ -41,24 +41,24 @@ jobs:
           pip install -r requirements.txt
           python manage.py test taskManager
 
-  secret_scanning:
+  sast:
     runs-on: ubuntu-20.04
     needs: test
     steps:
       - uses: actions/checkout@v2
 
-      - run: docker run --rm -v $(pwd):/src hysnsec/trufflehog filesystem /src --json > trufflehog-output.json
-        continue-on-error: true             # allow the build to fail, similar to "allow_failure: true" in GitLab
+      - run: docker run --rm -v $(pwd):/src hysnsec/bandit -r /src -f json -o /src/bandit-output.json
+        continue-on-error: true             # allow the build to fail, similar to allow_failure: true
 
       - uses: actions/upload-artifact@v2
         with:
-          name: TruffleHog
-          path: trufflehog-output.json
+          name: Bandit
+          path: bandit-output.json
         if: always()                        # what is this for?
 
   integration:
     runs-on: ubuntu-20.04
-    needs: secret_scanning
+    needs: test
     steps:
       - run: echo "This is an integration step"
       - run: exit 1
