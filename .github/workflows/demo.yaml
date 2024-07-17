@@ -55,7 +55,7 @@ jobs:
     needs: test
     steps:
       - run: |
-           docker pull softwaresecurityproject/zap-stable:2.13.0
+           docker pull softwaresecurityproject/zap-stable
            docker run --user root --rm -v $(pwd):/zap/wrk:rw -w /zap softwaresecurityproject/zap-stable:2.13.0 zap-baseline.py -t ${{ secrets.PROD_URL }} -J zap-output.json
         continue-on-error: true
 
