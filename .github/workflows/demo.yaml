@@ -64,7 +64,8 @@ jobs:
           name: ZAP Scan
           path: zap-output.json
         if: always()        # what is this for?
-
+        continue-on-error: true
+        
   zap_baseline_marketplace:
     runs-on: ubuntu-20.04
     needs: test
@@ -78,7 +79,7 @@ jobs:
         uses: zaproxy/action-baseline@v0.4.0
         with:
           token: ${{ secrets.TOKEN }}
-          docker_name: 'softwaresecurityproject/zap-stable:2.13.0'
+          docker_name: 'softwaresecurityproject/zap-stable'
           target: ${{ secrets.PROD_URL }}
         continue-on-error: true
 
