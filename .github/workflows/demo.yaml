@@ -74,8 +74,3 @@ jobs:
         with:
           name: nuclei.log
           path: nuclei.log          
-  prod:
-    runs-on: ubuntu-20.04
-    needs: integration
-    steps:
-      - run: echo "This is a deploy step."
