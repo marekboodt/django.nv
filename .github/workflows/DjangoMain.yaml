@@ -1,5 +1,5 @@
 name: Django SAST Pipeline
-# testing multiple locations
+# testing multiple location
 on:
   push:
     branches:
