@@ -1,0 +1,14 @@
+name: Django SAST Pipeline
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  trigger-sast-scan:
+    uses: marekboodt/Security-Scanning-Repo/.github/workflows/sast-workflow.yml@main
+    with:
+      language: python       # Specify the language for the scan
+      project_dir: ./src     # Directory in the Django.nv repo to scan
+      environment: non-prod  # Specify the environment (e.g., non-prod or prod)
