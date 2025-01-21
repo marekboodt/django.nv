@@ -18,6 +18,3 @@ jobs:
       environment: non-prod
     secrets:
       token: ${{ secrets.REUSABLEWORKFLOWACCESSDJANGOTOSECREPO }}
-    env:
-      ACTIONS_STEP_DEBUG: true
-      ACTIONS_RUNNER_DEBUG: true
