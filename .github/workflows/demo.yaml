@@ -42,6 +42,14 @@ jobs:
           python manage.py test taskManager
 
   
+  sast_Bandit_Other_Repo_location:
+      uses: marekboodt/Security-Scanning-Repo/.github/workflows/sast-workflow.yml@main
+      with:
+        project_dir: ./src
+        environment: non-prod
+      secrets:
+        token: ${{ secrets.SECURITY_REPO_TOKEN }}
+    
   sast_Bandit:
     runs-on: ubuntu-20.04
     needs: test
