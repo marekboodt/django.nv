@@ -50,7 +50,7 @@ jobs:
 
       - run: docker run --rm -v $(pwd):/src hysnsec/bandit -r /src -f json -o /src/bandit-output.json
 
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v4
         with:
           name: Bandit
           path: bandit-output.json
@@ -69,7 +69,7 @@ jobs:
       - run: |
            docker run --user $(id -u):$(id -g) -w /nuclei -v $(pwd):/nuclei:rw --rm projectdiscovery/nuclei:v2.9.6 -u https://prod-u4x21fq9.lab.practical-devsecops.training -j -o nuclei-output.json
 
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v4
         with:
           name: nuclei scan
           path: nuclei-output.json
@@ -91,7 +91,7 @@ jobs:
         continue-on-error: true
 
       - name: GitHub Workflow artifacts
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: nuclei.log
           path: nuclei.log          
