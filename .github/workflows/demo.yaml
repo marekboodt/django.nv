@@ -55,7 +55,7 @@ jobs:
           name: Bandit
           path: bandit-output.json
         if: always()                        # what is this for?
-
+        continue-on-error: true
       - uses: actions/setup-python@v2
         with:
           python-version: '3.6'
