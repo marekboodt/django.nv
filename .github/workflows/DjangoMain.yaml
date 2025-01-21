@@ -7,7 +7,8 @@ on:
 
 jobs:
   trigger-sast-scan:
-    uses: marekboodt/Security-Scanning-Repo/.github/workflows/sast-workflow.yml@main
+#    uses: marekboodt/Security-Scanning-Repo/.github/workflows/sast-workflow.yml@main
+    uses: marekboodt/Security-Scanning-Repo/blob/main/.github/workflows/sast-workflow.yml@main
     with:
       language: python
       project_dir: ./src
