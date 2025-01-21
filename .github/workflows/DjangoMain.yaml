@@ -4,7 +4,9 @@ on:
   push:
     branches:
       - main
-
+permissions:
+  actions: read
+  contents: read
 jobs:
   trigger-sast-scan:
     uses: marekboodt/Security-Scanning-Repo/.github/workflows/sast-workflow.yml@main
