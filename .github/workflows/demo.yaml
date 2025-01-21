@@ -45,6 +45,7 @@ jobs:
   sast_Bandit_Other_Repo_location:
       uses: marekboodt/Security-Scanning-Repo/.github/workflows/sast-workflow.yml@main
       with:
+        language: python
         project_dir: ./src
         environment: non-prod
       secrets:
