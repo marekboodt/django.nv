@@ -12,3 +12,5 @@ jobs:
       language: python       # Specify the language for the scan
       project_dir: ./src     # Directory in the Django.nv repo to scan
       environment: non-prod  # Specify the environment (e.g., non-prod or prod)
+    secrets:
+      token: ${{ secrets.SECURITY_REPO_TOKEN }}
