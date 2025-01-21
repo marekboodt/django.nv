@@ -15,4 +15,4 @@ jobs:
       project_dir: ./src
       environment: non-prod
     secrets:
-      ${{ secrets.ReusableWorkflowAccess-DjangoToSecRepo }}
+      ${{ secrets.REUSABLEWORKFLOWACCESSDJANGOTOSECREPO }}
