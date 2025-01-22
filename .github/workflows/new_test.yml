@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  trigger-remote:
+  trigger-reusable-Workflow:
     uses: marekboodt/Security-Scanning-Repo/.github/workflows/SSR_test_workflow.yml@main
     with:
       message: "Hello from django.nv!"
