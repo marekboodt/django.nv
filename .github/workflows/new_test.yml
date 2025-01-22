@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Send dispatch event to Security-Scanning-Repo
-        uses: peter-evans/repository-dispatch@v2
+        uses: marekboodt/Security-Scanning-Repo/.github/workflows/SSR_test_workflow.yml@main
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           repository: marekboodt/Security-Scanning-Repo
