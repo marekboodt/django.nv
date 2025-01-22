@@ -1,4 +1,4 @@
-name: Resting Reusable Workflows Multi Repo
+name: Testing Reusable Workflows Multi Repo
 #  test
 on:
   push:
