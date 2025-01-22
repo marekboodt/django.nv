@@ -1,4 +1,4 @@
-name: Main Pipeline
+name: Resting Reusable Workflows Multi Repo
 
 on:
   push:
