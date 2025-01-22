@@ -13,7 +13,7 @@ jobs:
       - name: Send dispatch event to Security-Scanning-Repo
         uses: marekboodt/Security-Scanning-Repo/.github/workflows/SSR_test_workflow.yml@main
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          repository: marekboodt/Security-Scanning-Repo
-          event-type: trigger-ssr
+   #       token: ${{ secrets.GITHUB_TOKEN }}
+   #       repository: marekboodt/Security-Scanning-Repo
+   #       event-type: trigger-ssr
           client-payload: '{"message": "Hello from django.nv!"}'
