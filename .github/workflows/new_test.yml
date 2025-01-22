@@ -1,1 +1,18 @@
+name: Main Pipeline
 
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  trigger-remote:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send dispatch event to Security-Scanning-Repo
+        uses: peter-evans/repository-dispatch@v2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          repository: marekboodt/Security-Scanning-Repo
+          event-type: trigger-ssr
+          client-payload: '{"message": "Hello from django.nv!"}'
