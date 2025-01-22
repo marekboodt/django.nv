@@ -8,12 +8,6 @@ on:
 
 jobs:
   trigger-remote:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Send dispatch event to Security-Scanning-Repo
-        uses: marekboodt/Security-Scanning-Repo/.github/workflows/SSR_test_workflow.yml@main
-        with:
-   #       token: ${{ secrets.GITHUB_TOKEN }}
-   #       repository: marekboodt/Security-Scanning-Repo
-   #       event-type: trigger-ssr
-          client-payload: '{"message": "Hello from django.nv!"}'
+    uses: marekboodt/Security-Scanning-Repo/.github/workflows/SSR_test_workflow.yml@main
+    with:
+      message: "Hello from django.nv!"
