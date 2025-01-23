@@ -7,8 +7,9 @@ on:
   workflow_dispatch:
 
 jobs:
+  # location of the filder to use. 
   trigger-reusable-Workflow:
-    uses: marekboodt/Security-Scanning-Repo/.github/workflows/SSR_test_workflow.yml@main
+    uses: marekboodt/Security-Scanning-Repo/.github/workflows/SSR_test_workflow.yml@main 
     with:
       message: "Hello from django.nv!"
 
