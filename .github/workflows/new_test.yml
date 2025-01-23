@@ -11,3 +11,10 @@ jobs:
     uses: marekboodt/Security-Scanning-Repo/.github/workflows/SSR_test_workflow.yml@main
     with:
       message: "Hello from django.nv!"
+
+  Sast-Scan-Workflow:
+    uses: marekboodt/Security-Scanning-Repo/.github/workflows/sast-workflow.yml@main
+    with:
+      language: python
+      project_dir: ./src
+      environment: non-prod
