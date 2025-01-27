@@ -15,6 +15,6 @@ jobs:
     with:
       language: python
       project_dir: ./src
-      environment: non-prod
+      environment: prod
 #    secrets:
 #      token: ${{ secrets.REUSABLEWORKFLOWACCESSDJANGOTOSECREPO }}
