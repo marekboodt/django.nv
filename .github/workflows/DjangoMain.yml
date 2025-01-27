@@ -10,11 +10,20 @@ permissions:
   contents: read
 
 jobs:
-  trigger-sast-scan:
+  NonProd-SAST-scan:
     uses: marekboodt/Security-Scanning-Repo/.github/workflows/sast-workflow.yml@main
     with:
       language: python
       project_dir: ./src
-      environment: prod
+      # non-prod has 'continue-on-error: true' all other environments will be stopped if the scans give an error.
+      environment: non-prod
 #    secrets:
 #      token: ${{ secrets.REUSABLEWORKFLOWACCESSDJANGOTOSECREPO }}
+
+  Prod-SAST-scan:
+    uses: marekboodt/Security-Scanning-Repo/.github/workflows/sast-workflow.yml@main
+    with:
+      language: python
+      project_dir: ./src
+      # non-prod has 'continue-on-error: true' all other environments will be stopped if the scans give an error.
+      environment: prod
