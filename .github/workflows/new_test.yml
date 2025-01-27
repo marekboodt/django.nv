@@ -7,15 +7,16 @@ on:
   workflow_dispatch:
 
 jobs:
-  # location of the filder to use. 
+  # location of the folder to use. 
   trigger-reusable-Workflow:
     uses: marekboodt/Security-Scanning-Repo/.github/workflows/SSR_test_workflow.yml@main 
     with:
       message: "Hello from django.nv!"
 
-  Sast-Scan-Workflow:
-    uses: marekboodt/Security-Scanning-Repo/.github/workflows/sast-workflow.yml@main
-    with:
-      language: python
-      project_dir: ./src
-      environment: non-prod
+### Other workflows 
+#  Sast-Scan-Workflow:
+#    uses: marekboodt/Security-Scanning-Repo/.github/workflows/sast-workflow.yml@main
+#    with:
+#      language: python
+#      project_dir: ./src
+#      environment: non-prod
