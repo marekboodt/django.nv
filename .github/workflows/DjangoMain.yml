@@ -1,9 +1,12 @@
 name: Django SAST Pipeline
 
 ######## IMPORTANT ########
-# non-prod has 'continue-on-error: true' all other environments will be stopped if the scans give an error-code that is not "0" !!!
-# Set environment as:
-# environment: non-prod
+# Variables to set:
+# type - must be set - what type of scan, [SCA, SAST, DAST, IAC]
+# language - Must be set of the code must be set to know which Scanning Type / File will be used
+# project_dir - Must be set to knw know which Directory to scan, " ./ " will be the default. 
+# environment - Must be set to know if the pipeline should stop or continue on error - non-prod has 'continue-on-error: true' all other environments will be stopped if the scans give an error.
+  # non-prod has 'continue-on-error: true' all other environments will be stopped if the scans give an error-code that is not "0" !!!
 
 on:
   push:
@@ -18,6 +21,7 @@ jobs:
   NonProd-SCA-scan:
     uses: marekboodt/Security-Scanning-Repo/.github/workflows/sca-workflow.yml@main
     with:
+      type: sca
       language: python
       project_dir: ./
       # non-prod has 'continue-on-error: true' all other environments will be stopped if the scans give an error.
@@ -26,6 +30,7 @@ jobs:
   NonProd-SAST-scan:
     uses: marekboodt/Security-Scanning-Repo/.github/workflows/sast-workflow.yml@main
     with:
+      type: sast
       language: python
       project_dir: ./src
       # non-prod has 'continue-on-error: true' all other environments will be stopped if the scans give an error.
