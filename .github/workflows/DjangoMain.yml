@@ -18,15 +18,6 @@ permissions:
   contents: read
 
 jobs:
-  NonProd-SCA-scan:
-    uses: marekboodt/Security-Scanning-Repo/.github/workflows/sca-workflow.yml@main
-    with:
-      type: sca
-      language: python
-      project_dir: ./
-      # non-prod has 'continue-on-error: true' all other environments will be stopped if the scans give an error.
-      environment: non-prod
-      
   NonProd-SAST-scan:
     uses: marekboodt/Security-Scanning-Repo/.github/workflows/sast-workflow.yml@main
     with:
@@ -47,3 +38,12 @@ jobs:
       # non-prod has 'continue-on-error: true' all other environments will be stopped if the scans give an error.
       environment: prod
 
+#  NonProd-SCA-scan:
+#    uses: marekboodt/Security-Scanning-Repo/.github/workflows/sca-workflow.yml@main
+#    with:
+#      type: sca
+#      language: python
+#      project_dir: ./
+#      # non-prod has 'continue-on-error: true' all other environments will be stopped if the scans give an error.
+#      environment: non-prod
+      
