@@ -16,7 +16,8 @@ on:
 permissions:
   actions: read
   contents: read
-
+  security-events: write
+  
 jobs:
   NonProd-SAST-scan:
     uses: marekboodt/Security-Scanning-Repo/.github/workflows/sast-workflow.yml@main
