@@ -20,7 +20,7 @@ permissions:
   
 jobs:
   NonProd-SAST-scan:
-    uses: marekboodt/Security-Scanning-Repo/.github/workflows/sast-custom-workflow.yml@main
+    uses: marekboodt/Security-Scanning-Repo/.github/workflows/sast-gh-action-workflow.yml@main
     with:
       type: sast
       language: python
