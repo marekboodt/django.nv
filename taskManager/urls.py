@@ -18,8 +18,7 @@ from taskManager.views import index
 from taskManager import taskManager_urls
 
 urlpatterns = [
-    re_path(r'^
-    , index, name='index'),
+    re_path(r'^$', index, name='index'),  # Fixed: Added closing quote and proper regex for root URL
     re_path(r'^taskManager/', include((taskManager_urls, "taskManager"), namespace="taskManager")),
     re_path(r'^admin/', admin.site.urls),
 ]
