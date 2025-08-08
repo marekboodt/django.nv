@@ -20,17 +20,29 @@ permissions:
   
 jobs:
   SAST-Scan:
-    uses: marekboodt/Security-Scanning-Repo/.github/workflows/sast-gh-action-workflow.yml@main
+    uses: marekboodt/Security-Scanning-Repo/.github/workflows/02-sast-workflow.yml@main
     with:
-      scantool: semgrep # must be set one of these [semgrep, sonarqube, bearer, codeql] - XXX is the standard
+      scantool: bearer # must be set one of these [semgrep, sonarqube, bearer, codeql] - XXX is the standard
       language: python, javascript # best practice for CodeQL, CAN be left empty - how to use: language: language1, language2, languageN
       project_dir: ./src
       environment: non-prod   # non-prod has 'continue-on-error: true' all other environments will be stopped if the scans give an error.
     secrets:
       SEMGREP_APP_TOKEN: ${{ secrets.SEMGREP_APP_TOKEN }}
-      CODEQL_TOKEN: ${{ secrets.CODEQL_TOKEN }} # not needed
       SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-      BEARER_TOKEN: ${{ secrets.BEARER_TOKEN }}
+      SONAR_HOST_URL: ${{ vars.SONAR_HOST_URL }}
+
+
+  DAST-Scan:
+    uses: marekboodt/Security-Scanning-Repo/.github/workflows/04-dast-workflow.yml@main
+    with:
+      scantool: zap # must be set one of these [zap] - zap is the standard
+ #     language: python, javascript # best practice for CodeQL, CAN be left empty - how to use: language: language1, language2, languageN
+      project_dir: ./src
+      environment: non-prod   # non-prod has 'continue-on-error: true' all other environments will be stopped if the scans give an error.
+      # # <-- Devs set this for their stack
+      start_command: python blog/manage.py runserver
+      # 'https://www.zaproxy.org/'
+      website_target: 'http://localhost:8000'
 
 #  Prod-SAST-scan:
 #    uses: marekboodt/Security-Scanning-Repo/.github/workflows/sast-custom-workflow.yml@main
