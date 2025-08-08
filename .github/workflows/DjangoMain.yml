@@ -40,7 +40,7 @@ jobs:
       project_dir: ./src
       environment: non-prod   # non-prod has 'continue-on-error: true' all other environments will be stopped if the scans give an error.
       # # <-- Devs set this for their stack
-      start_command: python blog/manage.py runserver
+      start_command: python manage.py runserver
       # 'https://www.zaproxy.org/'
       website_target: 'http://localhost:8000'
 
