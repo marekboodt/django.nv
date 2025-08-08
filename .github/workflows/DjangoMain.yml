@@ -1,6 +1,6 @@
 name: Django SAST Pipeline
 
-######## IMPORTANT ########
+######## IMPORTANT ######## 
 # Variables to set:  
 # type - must be set - what type of scan, [SCA, SAST, DAST, IAC]
 # language - Must be set of the code must be set to know which Scanning Type / File will be used
