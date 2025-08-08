@@ -12,17 +12,13 @@
 # from django.nV for use in another web application!
 #
 
-from django.conf.urls import include, url
+from django.urls import include, re_path
 from django.contrib import admin
 from taskManager.views import index
 from taskManager import taskManager_urls
 
 urlpatterns = [
-    url(r'^$',
-        index,
-        name='index'),
-    url(r'^taskManager/',
-        include(taskManager_urls,
-                namespace="taskManager")),
-    url(r'^admin/', admin.site.urls),
+    re_path(r'^, index, name='index'),
+    re_path(r'^taskManager/', include((taskManager_urls, "taskManager"), namespace="taskManager")),
+    re_path(r'^admin/', admin.site.urls),
 ]
