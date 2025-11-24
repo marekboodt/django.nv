@@ -20,7 +20,7 @@ permissions:
   
 jobs:
   SAST-Scan-semgrep: 
-    uses: marekboodt/Security-Scanning-Repo/.github/workflows/02-sast-workflow.yml@main
+    uses: marekboodt/Security-Scanning-Repo/.github/workflows/10-sast-workflow.yml@main
     with:
       sast-scan-tool: semgrep 
       # language: python, javascript
@@ -32,7 +32,7 @@ jobs:
       SONAR_HOST_URL: ${{ vars.SONAR_HOST_URL }}
 
   SAST-Scan-bearer: 
-    uses: marekboodt/Security-Scanning-Repo/.github/workflows/02-sast-workflow.yml@main
+    uses: marekboodt/Security-Scanning-Repo/.github/workflows/10-sast-workflow.yml@main
     with:
       sast-scan-tool: bearer 
       # language: python, javascript
@@ -44,7 +44,7 @@ jobs:
       SONAR_HOST_URL: ${{ vars.SONAR_HOST_URL }}
       
   SAST-Scan-codeql: 
-    uses: marekboodt/Security-Scanning-Repo/.github/workflows/02-sast-workflow.yml@main
+    uses: marekboodt/Security-Scanning-Repo/.github/workflows/10-sast-workflow.yml@main
     with:
       sast-scan-tool: codeql 
       # language: python, javascript
