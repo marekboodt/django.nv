@@ -6,12 +6,12 @@ on:
       - main
   workflow_dispatch:
 
-jobs:
+#jobs:
   # location of the folder to use. 
-  trigger-reusable-Workflow:
-    uses: marekboodt/Security-Scanning-Repo/.github/workflows/SSR_test_workflow.yml@main 
-    with:
-      message: "Hello from django.nv!"
+#  trigger-reusable-Workflow:
+#    uses: marekboodt/Security-Scanning-Repo/.github/workflows/SSR_test_workflow.yml@main 
+#    with:
+#      message: "Hello from django.nv!"
 
 ### Other workflows 
 #  Sast-Scan-Workflow:
