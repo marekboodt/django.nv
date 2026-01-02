@@ -23,42 +23,36 @@ permissions:
   security-events: write
   
 jobs:
-  SAST-Scan-semgrep: 
+  SAST-Scan-semgrep:
     uses: marekboodt/Security-Scanning-Repo/.github/workflows/10-sast-workflow.yml@main
     with:
-      sast-scan-tool: semgrep 
-      # language: python, javascript
+      sast-scan-tool: semgrep
       project_dir: ./src
       environment: non-prod
-    secrets: 
+    secrets:
       SEMGREP_APP_TOKEN: ${{ secrets.SEMGREP_APP_TOKEN }}
-      SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-      SONAR_HOST_URL: ${{ vars.SONAR_HOST_URL }}
+      # SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      # SONAR_HOST_URL: ${{ vars.SONAR_HOST_URL }}
 
-  SAST-Scan-bearer: 
+  SAST-Scan-bearer:
     uses: marekboodt/Security-Scanning-Repo/.github/workflows/10-sast-workflow.yml@main
     with:
-      sast-scan-tool: bearer 
-      # language: python, javascript
+      sast-scan-tool: bearer
       project_dir: ./src
       environment: non-prod
-    secrets: 
-      SEMGREP_APP_TOKEN: ${{ secrets.SEMGREP_APP_TOKEN }}
-      SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-      SONAR_HOST_URL: ${{ vars.SONAR_HOST_URL }}
+    # secrets:
+      # SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      # SONAR_HOST_URL: ${{ vars.SONAR_HOST_URL }}
       
-  SAST-Scan-codeql: 
+  SAST-Scan-codeql:
     uses: marekboodt/Security-Scanning-Repo/.github/workflows/10-sast-workflow.yml@main
     with:
-      sast-scan-tool: codeql 
-      # language: python, javascript
+      sast-scan-tool: codeql
       project_dir: ./src
       environment: non-prod
-    secrets: 
-      SEMGREP_APP_TOKEN: ${{ secrets.SEMGREP_APP_TOKEN }}
-      SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-      SONAR_HOST_URL: ${{ vars.SONAR_HOST_URL }}
-
+    # secrets:
+      # SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      # SONAR_HOST_URL: ${{ vars.SONAR_HOST_URL }}
 
 #  Prod-SAST-scan:
 #    uses: marekboodt/Security-Scanning-Repo/.github/workflows/sast-custom-workflow.yml@main
